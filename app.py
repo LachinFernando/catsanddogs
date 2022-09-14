@@ -27,7 +27,6 @@ def prediction(modelname, sample_image, IMG_SIZE = (224,224)):
         img_batch = deepcopy(img_batch)
         image_batch = img_batch.astype(np.float32)
         image_batch = preprocess_input(image_batch)
-        st.image(img_batch)
         prediction = load_model.predict(img_batch)
         return labels[int(np.argmax(prediction, axis = 1))]
 

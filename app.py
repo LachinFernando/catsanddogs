@@ -92,6 +92,6 @@ if image1:
     st.subheader("This is a **{}**".format(label))
 
     print("asfaegagdabdb")
-    print("adgasdgsdagsag")
+    print("This was fixed")
     print("asdgsgbfs")
 

@@ -92,5 +92,4 @@ if image1:
     st.subheader("This is a **{}**".format(label))
 
     #do not need to add more features
-    ################################
-    ################################
+

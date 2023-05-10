@@ -95,3 +95,5 @@ if image1:
     ################################
     ################################
 
+st.subheader("App construction finished")
+st.write("No need to add more information to here")

@@ -109,3 +109,77 @@ st.markdown("AI Club **Navigator** is really cool")
 #for that we can use this
 #!streamlit run app.py & npx localtunnel --port 8501
 
+import streamlit as st
+import requests
+import json
+from PIL import Image
+
+#styleing
+css_style = """
+<style>
+    .about {
+        text-align: justfiy;
+        border: 2px solid black;
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        text-align: justify;
+    }
+
+    .about:hover {
+        box-shadow: 0px 2px 1px grey;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        padding: 15px;
+        column-gap: 10px;
+        row-gap: 10px;
+        border: 2px solid black;
+        border-radius: 10px;
+    }
+
+    .img {
+        width: 200px;
+        height: 200px;
+        margin-left: 10px;
+        transition: transform 2s;
+    }
+
+    .label {
+        text-align: center;
+        font-weight: bold;
+        margin: 0px;
+    }
+
+    .img:hover {
+        transform: scale(1.1);
+        
+    }
+
+    .img:hover + p {
+        margin-top: 10px;
+    }
+
+</style>
+"""
+#set css styles
+st.markdown(css_style, unsafe_allow_html=True)
+
+#####subscription key
+subscription_key = '712fb8ca42394295b148d5d78769a25e'#prediction key
+
+################################Needful Functions###################################
+def get_prediction(image_data, header_data):
+  #copy the URL
+  url = 'https://yamunainstance1-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/a4ea8971-bfaf-48cf-8754-9bbf05343d2a/classify/iterations/Iteration1/image'
+  r = requests.post(url,headers = header_data, data = image_data)
+  response = json.loads(r.content)
+  print(response)
+  return response
+
+
+#title of the web app
+st.title("E Waste Classification")
+

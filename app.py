@@ -105,3 +105,7 @@ st.subheader("Navigator")
 st.write("I love AIClub")
 st.markdown("AI Club **Navigator** is really cool")
 
+#!streamlit run app.py - This works locally. Since this is run on google cloud, we have to create a local port through a local tunnel
+#for that we can use this
+#!streamlit run app.py & npx localtunnel --port 8501
+

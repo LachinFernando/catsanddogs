@@ -30,8 +30,6 @@ class OtterAI:
 
         return self._handle_response(response)
     
-
-    
 def addition(num1, num2):
     return num1 + num2
 
@@ -43,3 +41,7 @@ def multi(num1, num2):
 
 def divider(num1, num2):
     return num1/num2
+
+def print_strings(args):
+    for word in args:
+        print(word)

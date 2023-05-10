@@ -94,6 +94,5 @@ if image1:
     #please add more features to here
     ################################
     ################################
+st.write("continue up the app constructions")
 
-st.subheader("App construction finished")
-st.write("No need to add more information to here")

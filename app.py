@@ -95,4 +95,13 @@ if image1:
     ################################
     ################################
 st.write("continue up the app constructions")
+#this magic command (%%writefile app.py) needs to be there to write the code into the app.py(Note: You can name the .py in any name)
+#it is must to have the every code in the same code cell
+import streamlit as st
+
+st.title ("My first Web App")
+st.header ("AIClub")
+st.subheader("Navigator")
+st.write("I love AIClub")
+st.markdown("AI Club **Navigator** is really cool")
 

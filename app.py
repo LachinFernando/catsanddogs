@@ -13,6 +13,7 @@ def prediction(modelname, sample_image, IMG_SIZE = (224,224)):
 
     #labels
     labels = ["Cat","Dog"]
+    labels.sort()
 
     try:
         #loading the .h5 model

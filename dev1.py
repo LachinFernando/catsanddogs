@@ -29,3 +29,8 @@ class OtterAI:
         response = self._session.get(speech_url, params=payload)
 
         return self._handle_response(response)
+    
+
+    
+def addition(num1, num2):
+    return num1 + num2

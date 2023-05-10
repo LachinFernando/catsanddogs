@@ -179,7 +179,26 @@ def get_prediction(image_data, header_data):
   print(response)
   return response
 
-
 #title of the web app
 st.title("E Waste Classification")
 
+#main imag
+st.image("https://cdnsm5-hosted.civiclive.com/UserFiles/Servers/Server_13659739/Image/recycling/banners/ewaste.jpg", caption = "E-Waste")
+
+#sidebar
+with st.sidebar:
+    #set title for the sidebar
+    st.header("E - Waste")
+    #set the side bar image
+    st.image("https://thumbs.dreamstime.com/b/pile-electronic-waste-gadgets-use-isolated-white-background-reuse-recycle-concept-144517803.jpg", caption = "Types of E-Waste")
+    #about e waste
+    st.subheader("What are E-Waste?")
+    st.markdown("- Electronic waste or e-waste describes discarded electrical or electronic devices. Used electronics which are destined for refurbishment, reuse, resale, salvage recycling through material recovery, or disposal are also considered e-waste.")
+    #bad effects of e waste
+    st.subheader("Negative Effects of E-waste")
+    st.markdown("- Electronic waste contains toxic components that are dangerous to human health, such as mercury, lead, cadmium, polybrominated flame retardants, barium and lithium")
+    st.markdown("- The negative health effects of these toxins on humans include brain, heart, liver, kidney and skeletal system damage.")
+    st.markdown("- It can also considerably affect the nervous and reproductive systems of the human body, leading to disease and birth defects.")
+    st.markdown("- Improper disposal of e-waste is unbelievably dangerous to the global environment, which is why it is so important to spread awareness on this growing problem and the threatening aftermath.")
+    st.subheader("How to Avoid?")
+    st.markdown("- To avoid these toxic effects of e-waste, it is crucial to properly e-cycle, so that items can be recycled, refurbished, resold, or reused. The growing stream of e-waste will only worsen if not educated on the correct measures of disposal.")

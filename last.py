@@ -9,3 +9,10 @@ def substraction(num1, num2):
 #aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 #sssssssssssssssssssssssssssssss
 #eeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+
+#ppppppppppppppppppppppppppppppppppp
+#oooooooooooooooooooooooooooooooooo
+#ggggggggggggggggggggggggggggggggggg
+#vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+#rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

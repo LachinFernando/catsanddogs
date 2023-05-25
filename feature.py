@@ -139,3 +139,10 @@ class OtterAI:
         full_transcripts = " ".join([script['transcript'] for script in speech_get_response['data']['speech']['transcripts']])
 
         return full_transcripts
+
+#11111111111111
+#2222222222222
+#3333333333333
+#444444444444
+#55555555555555555
+#66666666666666666

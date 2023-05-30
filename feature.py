@@ -153,3 +153,6 @@ class OtterAI:
     #dfjgdgdgjkfgkfgk
     #fdjdgjddgjgjdj
     #fdjgfjdgjdfjfgc
+    ##sfdgsdfhgsdfh
+    #valar maghoulous
+    #aarya, sansa

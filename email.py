@@ -5,7 +5,7 @@ from Utils import request_utils as req_utils
 from SES import ses_utils
 from Utils import response_utils as rutils
 
-def notify_coordinators(event):
+def notify_coordinators(event: dict) -> dict:
 
     if isinstance(event['body'], str):
         params = json.loads(event['body'])
@@ -35,6 +35,63 @@ def notify_coordinators(event):
     return rutils.success_response(response)
         
 
+def process_billing_emails(event: dict) -> dict:
+    params = event["body"]
+    first_name = req_utils.get_params(params, "firstName")
+    last_name = req_utils.get_params(params, "lastName")
+    email = req_utils.get_params(params, "email")
+    tx_id = req_utils.get_params(params, "txId")
+    amount = req_utils.get_params(params, "amount")
+    event = req_utils.get_params(params, "event")
+    discount = req_utils.get_params(params, "discount")
+    class_date = req_utils.get_params(params, "classDate")
+
+    if event == "one-to-one-class" and amount > 0:
+        try:
+            result = ses_utils.send_one_to_one_payment_email(
+                first_name, last_name, email, tx_id, amount, discount
+            )
+            response = {"sent": result}
+            return rutils.success_response(response)
+
+        except Exception as error:
+            message = f"Error occured while sending one on one payment email err: {str(error)}"
+            ais_utils.add_log_record(
+                email,
+                event,
+                "Payments",
+                None,
+                "ERROR",
+                message,
+                sub_stage="One on one payment",
+            )
+            print(message)
+            error = {"errorCode": None, "message": message, "suggestions": None}
+            return rutils.failure_response([error])
+
+    elif event == "one-to-one-cancel" and amount > 0 and class_date:
+        try:
+            result = ses_utils.send_one_to_one_cancellation_payment_email(
+                first_name, last_name, email, tx_id, amount, class_date
+            )
+            response = {"sent": result}
+            return rutils.success_response(response)
+
+        except Exception as error:
+            message = f"Error occured while sending one on one cancellation payment email err: {str(error)}"
+            ais_utils.add_log_record(
+                email,
+                event,
+                "Payments",
+                None,
+                "ERROR",
+                message,
+                sub_stage="One on one payment",
+            )
+            print(message)
+            error = {"errorCode": None, "message": message, "suggestions": None}
+            return rutils.failure_response([error])
+
 
 def lambda_handler(event, context):
     """Handle the request from the API gateway
@@ -55,8 +112,13 @@ def lambda_handler(event, context):
         if path == '/checkouts/notify-coordinators':
             if event['httpMethod'] == 'POST':
                 response = notify_coordinators(event)
+        elif path == '/checkouts/send-email':
+            response = process_billing_emails(event)
+            print("Response", response)
         else:
             print('Unsupported Method: {} or unsupported path {}'.format(event['httpMethod']), path)
+        print("Hello")
+
     except Exception as e:
         return rutils.unsupported_method(event, context, e)
 

@@ -3,3 +3,6 @@ def handle_ops(path):
     image_name = name.split(".")[0]
     final_name = image_name + ".png"
     return final_name
+
+def change_ops(path):
+    return path.replace(" ", "_")

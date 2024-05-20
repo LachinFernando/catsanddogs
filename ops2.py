@@ -6,3 +6,6 @@ def handle_ops(path):
 
 def change_ops(path):
     return path.replace(" ", "_")
+
+def multi(n,n1):
+    return n*n1

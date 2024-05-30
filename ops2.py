@@ -6,3 +6,7 @@ def handle_ops(path):
 
 def change_ops(path):
     return path.replace(" ", "_")
+
+
+def different(name: str) -> str:
+    return name.strip()
